@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/pickerTempsCuisson"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:isScrollContainer="false"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titreAjouter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TableRow>
+
+        <TextView
+            android:text="@string/labelPlat"
+            android:layout_column="0"/>
+
+        <EditText
+            android:id="@+id/txtPlat"
+            android:inputType="text"
+            android:maxLength="20"/>
+    </TableRow>
+
+    <TableRow>
+        <TextView
+            android:text="@string/labelTempsCuisson"
+            android:layout_column="0"/>
+
+        <!-- Mettre format français dans MainActivity -->
+        <TimePicker
+            android:id="@+id/timePicker"
+            android:layout_width="178dp"
+            android:layout_height="158dp"
+            android:timePickerMode="spinner" />
+    </TableRow>
+
+    <TableRow>
+
+        <TextView android:text="@string/labelTemp" />
+
+        <EditText
+            android:id="@+id/txtTempérature"
+            android:maxLength="3"
+            android:inputType="number"
+            android:layout_column="2"/>
+    </TableRow>
+    <TableRow>
+        <Button
+            android:id="@+id/btnEffacer"
+            android:text="@string/btnEffacer"
+            android:layout_column="1"/>
+        <Button
+            android:id="@+id/btnValider"
+            android:text="@string/btnValider"
+            android:layout_column="2"/>
+    </TableRow>
+
+</TableLayout>
