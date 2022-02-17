@@ -12,4 +12,5 @@
     <color name="bouton">#730a32</color>
     <color name="editText">#fbb8b8</color>
     <color name="timePicker">#30fbb8b8</color> <!-- opacité -->
+    <color name="barreH">#30fbb8b8</color> <!-- opacité -->
 </resources>

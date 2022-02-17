@@ -35,4 +35,23 @@
         <item name="android:backgroundTint">@color/bouton</item>
     </style>
 
+    <style name="titreListe">
+        <item name="android:textSize">@dimen/fontTitre</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/titre</item>
+    </style>
+
+    <style name="liste">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/fontTextView</item>
+        <item name="android:textColor">@color/textView</item>
+    </style>
+
+    <style name="barreHorizontale">
+        <item name="android:layout_height">@dimen/epaisseurBarre</item>
+        <item name="android:layout_marginTop">@dimen/marginBarre</item>
+        <item name="android:layout_marginBottom">@dimen/marginBarre</item>
+        <item name="android:background">@color/barreH</item>
+    </style>
+
 </resources>

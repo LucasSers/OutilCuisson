@@ -6,4 +6,10 @@
     <string name="labelTemp">Température</string>
     <string name="btnEffacer">Effacer</string>
     <string name="btnValider">Valider</string>
+    <string name="titreAfficher">Temps de cuisson</string>
+    <string name="labelDurée">Durée</string>
+    <string name="labelDegres">Degrés</string>
+    <string name="modifPlat">%s</string>
+    <string name="modifDuree">| %s</string>
+    <string name="modifDegres">| %s</string>
 </resources>

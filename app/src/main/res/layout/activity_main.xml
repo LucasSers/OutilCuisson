@@ -50,13 +50,17 @@
             style="@style/textView"
             android:text="@string/labelTempsCuisson"
             android:layout_column="0"/>
+    </TableRow>
 
+    <TableRow>
         <!-- format anglais à changer -->
         <TimePicker
                 style="@style/timePicker"
                 android:id="@+id/timePicker"
                 android:layout_width="wrap_content"
                 android:layout_height="158dp"
+                android:layout_marginTop="10dp"
+                android:layout_column="1"
                 android:layout_span="2"
                 android:timePickerMode="spinner"/>
     </TableRow>
