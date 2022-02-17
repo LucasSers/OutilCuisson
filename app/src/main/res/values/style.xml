@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="marginActivity">
+        <item name="android:layout_margin">@dimen/marginActivite</item>
+    </style>
+
+    <style name="titre">
+        <item name="android:textSize">@dimen/fontTitre</item>
+        <item name="android:gravity">center</item>
+        <item name="android:layout_marginBottom">@dimen/marginTitre</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:textColor">@color/titre</item>
+    </style>
+
+    <style name="textView">
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:textSize">@dimen/fontTextView</item>
+        <item name="android:textColor">@color/textView</item>
+    </style>
+
+    <style name="editText">
+        <item name="android:textAppearance">@style/TextAppearance.AppCompat.Small</item>
+        <item name="android:fontFamily">sans-serif-medium</item>
+        <item name="android:backgroundTint">@color/editText</item>
+        <item name="android:cursorVisible">true</item>
+        <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+    </style>
+
+    <style name="timePicker">
+        <item name="android:background">@drawable/layout_bg</item> <!-- bords arrondis et background avec opacité -->
+    </style>
+
+    <style name="bouton">
+        <item name="android:backgroundTint">@color/bouton</item>
+    </style>
+
+</resources>
