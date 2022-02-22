@@ -14,7 +14,6 @@ public class MainActivity2 extends AppCompatActivity implements AdapterView.OnIt
 
     ListView listeCuissons;
     ArrayList<String> lesCuissons = new ArrayList<>();
-    //CustomListAdaptater<String> adaptateur;
     ArrayAdapter<String> adaptateur;
 
     @Override
@@ -24,12 +23,13 @@ public class MainActivity2 extends AppCompatActivity implements AdapterView.OnIt
 
         listeCuissons = findViewById(R.id.liste);
 
-        lesCuissons.add(OutilCuisson.transformeEnChaine("azertyuiopQSDFGHQQ",1, 10, 200));
+        lesCuissons.add(OutilCuisson.transformeEnChaine("Pizza",0, 20, 205));
         lesCuissons.add(OutilCuisson.transformeEnChaine("Gratin dauphinois",0, 50, 180));
         lesCuissons.add(OutilCuisson.transformeEnChaine("Tarte aux pommes",0, 40, 205));
-        lesCuissons.add(OutilCuisson.transformeEnChaine("azertyuiopQSDFGHQ",1, 10, 200));
+        lesCuissons.add(OutilCuisson.transformeEnChaine("Poulet",1, 10, 200));
 
-        adaptateur = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, lesCuissons);
+        /* on affecte la layout défini par les items de la liste */
+        adaptateur = new ArrayAdapter<String>(this, R.layout.list_item_layout, lesCuissons);
 
         listeCuissons.setAdapter(adaptateur);
 

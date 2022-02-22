@@ -102,11 +102,11 @@ public class OutilCuisson {
 
     /**
      * Concatène les arguments dans une chaîne de caractères. Celle-ci aura le format
-     * suivant : 
+     * suivant :
      *    nom du plat   |  temps de cuisson en heures et minutes | température
      * Si l'un des arguments est invalide, c'est la constante CHAINE_DEFAUT qui
      * est renvoyée
-     * @param nomPlat           nom du plat. Doit être non vide, avec au plus 
+     * @param nomPlat           nom du plat. Doit être non vide, avec au plus
      *                          LG_MAX_PLAT caractères, ne doit pas contenir |
      * @param heureCuisson      nombre d'heures de la durée de la cuisson
      *                          doit être compris entre 0 et 9
@@ -127,16 +127,16 @@ public class OutilCuisson {
             // on insère le nom du plat
             aRenvoyer.append(nomPlat);
             aRenvoyer.append(chaineEspace(LG_MAX_PLAT - nomPlat.length()));
-            aRenvoyer.append("   |   ");
+            aRenvoyer.append("  |  ");
 
             // on insère la durée
             aRenvoyer.append(String.valueOf(heureCuisson));
-            aRenvoyer.append("  h  ");
+            aRenvoyer.append(" h ");
             if (minuteCuisson < 10) {
                 aRenvoyer.append("0");
             }
             aRenvoyer.append(String.valueOf(minuteCuisson));
-            aRenvoyer.append("   |   ");
+            aRenvoyer.append("  |  ");
 
             // on insère la température
             aRenvoyer.append(String.format("%3d", temperature));
@@ -147,6 +147,7 @@ public class OutilCuisson {
         }
         return aRenvoyer.toString();
     }
+
 
 
     /**

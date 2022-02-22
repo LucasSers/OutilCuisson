@@ -1,6 +1,6 @@
 <resources>
     <string name="app_name">OutilCuisson</string>
-    <!-- Activite principale -->
+    <!-- Activité Ajouter -->
     <string name="titreAjouter">Description cuisson d\'un plat</string>
     <string name="labelPlat">Plat</string>
     <string name="labelTempsCuisson">Durée de la cuisson</string>
@@ -8,24 +8,21 @@
     <string name="btnEffacer">Effacer</string>
     <string name="btnValider">Valider</string>
 
-    <!-- Autre activité -->
+    <!-- Activité Afficher -->
     <string name="titreAfficher">Temps de cuisson</string>
     <string name="labelDurée">Durée</string>
     <string name="labelDegres">Degrés</string>
-    <string name="modifPlat">%s</string>
-    <string name="modifDuree">| %s</string>
-    <string name="modifDegres">| %s</string>
 
     <!-- Toast -->
-    <string name="toast">Le plat %s a bien été ajouté</string>
+    <string name="toast">Le plat %s a bien été ajouté à la liste.</string>
 
     <!-- Boite Alerte -->
     <string name="titreAlerte">Erreur de saisie</string>
-    <string name="messageAlerte">L\'une des information saisie est inorrecte :\n
-                                 - Nom du plat -> vide, contient | ou supérieur à 17 caractères \n
+    <string name="messageAlerte">L\'une des informations saisies est incorrecte :\n
+                                 - Nom du plat -> vide, contient | \n
                                  - Durée de cuisson -> nulle ou trop grande (max 9h) \n
-                                 - Température nulle ou supérieure à 300 degrès \n\n
-                                 Vérifier les valeurs saisies</string>
+                                 - Température -> nulle ou supérieure à 300 degrès \n\n
+                                 Vérifiez les valeurs saisies !</string>
     <string name="retourAlerte">Retour</string>
 
 </resources>

@@ -27,7 +27,7 @@
         <item name="android:textCursorDrawable">@drawable/color_cursor</item>
     </style>
 
-    <style name="timePicker">
+    <style name="background">
         <item name="android:background">@drawable/layout_bg</item> <!-- bords arrondis et background avec opacité -->
     </style>
 
@@ -39,10 +39,6 @@
         <item name="android:textSize">@dimen/fontTitre</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/titre</item>
-    </style>
-
-    <style name="liste">
-        <item name="android:background">@drawable/layout_bg</item> <!-- bords arrondis et background avec opacité -->
     </style>
 
 </resources>
