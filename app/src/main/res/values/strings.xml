@@ -25,4 +25,15 @@
                                  Vérifiez les valeurs saisies !</string>
     <string name="retourAlerte">Retour</string>
 
+    <!-- Menu contextuel -->
+    <string name="libelle_option1">Supprimer</string>
+    <string name="libelle_option2">Voir thermostat</string>
+    <string name="libelle_option3">Annuler</string>
+
+    <!-- AlertDialog Thermostat -->
+    <string name="titreThermostat">Equivalent thermostat</string>
+    <string name="messageThermostat">Cuisson du plat : %s\n\nPour obtenir la température de %d°C, vous devez régler
+        votre four sur le thermostat %d
+    </string>
+
 </resources>

@@ -197,7 +197,7 @@ public class OutilCuisson {
 
 
     /**
-     * Renvoie le thermostat correspondant à la temperature arguemnt
+     * Renvoie le thermostat correspondant à la temperature argument
      * (celle-ci doit être inférieure à TEMPERATURE_MAX)
      * @param temperature    température à convertir
      * @return  l'entier égal au thermostat ou -1 si la température est invalide

@@ -1,20 +1,23 @@
 package com.example.outilcuisson;
 
-import android.view.View;
+import android.view.*;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 
 import java.util.ArrayList;
 
-public class MainActivity2 extends AppCompatActivity implements AdapterView.OnItemClickListener {
+public class MainActivity2 extends AppCompatActivity {
 
     ListView listeCuissons;
     ArrayList<String> lesCuissons = new ArrayList<>();
     ArrayAdapter<String> adaptateur;
+
+    String text; // Pour le toast
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,14 +36,61 @@ public class MainActivity2 extends AppCompatActivity implements AdapterView.OnIt
 
         listeCuissons.setAdapter(adaptateur);
 
-        listeCuissons.setOnItemClickListener(this);
-
+        // on précise qu'un menu est associé à la liste qui correspond à l'activité
+        registerForContextMenu(listeCuissons);
     }
 
 
+    /**
+     * Méthode invoquée automatiquement lorsque l'utilisateur active un menu contextuel
+     */
     @Override
-    public void onItemClick(AdapterView<?> parent, View v, int position, long id) {
-        //text = lesModules.get(position);
-        //Toast.makeText(this, getString(R.string.toast, text), Toast.LENGTH_SHORT).show();
+    public void onCreateContextMenu(ContextMenu menu, View v,
+                                    ContextMenu.ContextMenuInfo menuInfo) {
+        /*
+         * on désérialise le fichier XML décriant le menu et on l'associe
+         * au menu argument (celui qui a été activé)
+         */
+        new MenuInflater(this).inflate(R.menu.menu_general, menu);
+    }
+
+    /**
+     * Méthode invoquée automatiquement lorsque l'utilisateur choisira une option
+     * dans un menu contextuel
+     */
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        /*
+         * on accède à des informations supplémentaires sur la vue associée
+         * au menu activé. L'information qui nous intéresse est la position
+         * de l'élément de la liste sur lequel l'utilisateur a cliqué pour
+         * activer le menu.
+         */
+        AdapterView.AdapterContextMenuInfo information =
+                (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+
+        // selon l'option sélectionnée dans le menu, on réalise le traitement adéquat
+        switch(item.getItemId()) {
+
+            case R.id.supprimer: // on supprime de l'adaptateur l'article courant
+                adaptateur.remove(lesCuissons.get(information.position));
+                break;
+
+            case R.id.thermostat: // affiche le thermostat dans une AlertDialog
+
+                String plat = OutilCuisson.extrairePlat(lesCuissons.get(information.position));
+                int temperature = OutilCuisson.extraireTemperature(lesCuissons.get(information.position));
+
+                new AlertDialog.Builder(this)
+                        .setTitle(R.string.titreThermostat)
+                        .setMessage(getString(R.string.messageThermostat, plat, temperature, OutilCuisson.thermostat(temperature)))
+                        .setNeutralButton(R.string.retourAlerte,null)
+                        .show();
+                break;
+
+            case R.id.annuler : // retour à la liste principale
+                break;
+        }
+        return (super.onContextItemSelected(item));
     }
 }
