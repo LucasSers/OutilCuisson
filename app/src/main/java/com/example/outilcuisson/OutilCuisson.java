@@ -127,16 +127,16 @@ public class OutilCuisson {
             // on insère le nom du plat
             aRenvoyer.append(nomPlat);
             aRenvoyer.append(chaineEspace(LG_MAX_PLAT - nomPlat.length()));
-            aRenvoyer.append(" | ");
+            aRenvoyer.append("   |   ");
 
             // on insère la durée
             aRenvoyer.append(String.valueOf(heureCuisson));
-            aRenvoyer.append(" h ");
+            aRenvoyer.append("  h  ");
             if (minuteCuisson < 10) {
                 aRenvoyer.append("0");
             }
             aRenvoyer.append(String.valueOf(minuteCuisson));
-            aRenvoyer.append(" | ");
+            aRenvoyer.append("   |   ");
 
             // on insère la température
             aRenvoyer.append(String.format("%3d", temperature));

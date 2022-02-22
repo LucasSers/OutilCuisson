@@ -42,16 +42,7 @@
     </style>
 
     <style name="liste">
-        <item name="android:fontFamily">sans-serif-medium</item>
-        <item name="android:textSize">@dimen/fontTextView</item>
-        <item name="android:textColor">@color/textView</item>
-    </style>
-
-    <style name="barreHorizontale">
-        <item name="android:layout_height">@dimen/epaisseurBarre</item>
-        <item name="android:layout_marginTop">@dimen/marginBarre</item>
-        <item name="android:layout_marginBottom">@dimen/marginBarre</item>
-        <item name="android:background">@color/barreH</item>
+        <item name="android:background">@drawable/layout_bg</item> <!-- bords arrondis et background avec opacité -->
     </style>
 
 </resources>

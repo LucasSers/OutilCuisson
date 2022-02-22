@@ -9,6 +9,7 @@
              android:isScrollContainer="false"
              tools:context=".MainActivity">
 
+
     <TextView
             style="@style/titre"
             android:layout_width="wrap_content"
@@ -31,7 +32,7 @@
                 android:text="@string/labelPlat"
                 android:gravity="center"
                 android:width="155dp"
-                android:layout_marginRight="20dp"
+                android:layout_marginRight="31dp"
                 android:layout_column="0"/>
 
 
@@ -39,7 +40,7 @@
         <TextView
                 style="@style/titreListe"
                 android:text="@string/labelDurée"
-                android:layout_marginRight="40dp"
+                android:layout_marginRight="26dp"
                 android:layout_column="1"/>
 
 
@@ -52,36 +53,11 @@
 
     </TableRow>
 
-    <!-- Espace pour plus de clarté entre les 3 TextView -->
-    <Space
-            android:layout_marginBottom="@dimen/espaceLigne"
-            android:layout_height="wrap_content"/>
-
-    <TableRow>
-
-        <TextView
+        <ListView
                 style="@style/liste"
-                android:text="@string/modifPlat"
-                android:width="155dp"
-                android:layout_marginRight="20dp"
-                android:layout_column="0"/>
+                android:id="@+id/liste"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
 
-
-        <TextView
-                style="@style/liste"
-                android:text="@string/modifDuree"
-                android:layout_marginRight="40dp"
-                android:layout_column="1"/>
-
-
-        <TextView
-                style="@style/liste"
-                android:text="@string/modifDegres"
-                android:layout_column="2"/>
-
-    </TableRow>
-
-    <!-- barre horizontale -->
-    <View style="@style/barreHorizontale"/>
 
 </TableLayout>

@@ -7,6 +7,5 @@
     <dimen name="espaceLigne">30dp</dimen>
     <dimen name="espaceBoutons">10dp</dimen>
     <dimen name="bordArrondiWidget">20dp</dimen>
-    <dimen name="epaisseurBarre">1dp</dimen>
     <dimen name="marginBarre">15dp</dimen>
 </resources>
