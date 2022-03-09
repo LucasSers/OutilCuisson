@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">OutilCuisson</string>
     <!-- Activité Ajouter -->
+    <string name="ongletAjouter">Ajouter</string>
     <string name="titreAjouter">Description cuisson d\'un plat</string>
     <string name="labelPlat">Plat</string>
     <string name="labelTempsCuisson">Durée de la cuisson</string>
@@ -9,6 +10,7 @@
     <string name="btnValider">Valider</string>
 
     <!-- Activité Afficher -->
+    <string name="ongletAfficher">Afficher</string>
     <string name="titreAfficher">Temps de cuisson</string>
     <string name="labelDurée">Durée</string>
     <string name="labelDegres">Degrés</string>

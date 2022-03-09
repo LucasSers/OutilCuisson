@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/marginActivity"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:isScrollContainer="false"
+    tools:context=".FragmentDeux">
+
+
+    <TextView
+        style="@style/titre"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/titreAfficher"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <!-- Espace pour plus de clarté entre les TextView -->
+    <Space
+        android:layout_marginBottom="@dimen/espaceLigne"
+        android:layout_height="wrap_content"/>
+
+    <TableRow>
+
+        <TextView
+            style="@style/titreListe"
+            android:text="@string/labelPlat"
+            android:gravity="center"
+            android:width="155dp"
+            android:layout_marginRight="15dp"
+            android:layout_column="0"/>
+
+
+
+        <TextView
+            style="@style/titreListe"
+            android:text="@string/labelDurée"
+            android:layout_marginRight="39dp"
+            android:layout_column="1"/>
+
+
+
+        <TextView
+            style="@style/titreListe"
+            android:text="@string/labelDegres"
+            android:layout_column="2"/>
+
+
+    </TableRow>
+
+
+    <ListView
+        style="@style/background"
+        android:id="@+id/liste"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+</TableLayout>
