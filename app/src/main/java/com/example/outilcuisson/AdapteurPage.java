@@ -18,9 +18,9 @@ public class AdapteurPage extends FragmentStateAdapter {
     public Fragment createFragment(int position) {
         switch (position) {
             case 0 :
-                return FragmentUn.newInstance();
+                return Afficher.newInstance();
             case 1 :
-                return FragmentDeux.newInstance();
+                return Ajouter.newInstance();
             default :
                 return null;
         }

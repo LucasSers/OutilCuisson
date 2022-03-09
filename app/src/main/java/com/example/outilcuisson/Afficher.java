@@ -16,7 +16,7 @@ import androidx.fragment.app.Fragment;
 
 import java.util.ArrayList;
 
-public class FragmentDeux extends Fragment {
+public class Afficher extends Fragment {
 
     private ListView listeCuissons;
     private ArrayList<String> lesCuissons = new ArrayList<>();
@@ -24,12 +24,12 @@ public class FragmentDeux extends Fragment {
 
     String text; // Pour le toast
 
-    public FragmentDeux() {
+    public Afficher() {
         // empty body
     }
 
-    public static FragmentDeux newInstance() {
-        FragmentDeux fragment = new FragmentDeux();
+    public static Afficher newInstance() {
+        Afficher fragment = new Afficher();
         return fragment;
     }
 
@@ -107,5 +107,9 @@ public class FragmentDeux extends Fragment {
                 break;
         }
         return (super.onContextItemSelected(item));
+    }
+
+    public void ajoutPlat(String lePlat) {
+        adaptateur.add(lePlat);
     }
 }

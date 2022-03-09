@@ -1,26 +1,24 @@
 package com.example.outilcuisson;
 
-import android.os.Build;
-import android.os.Bundle;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ListView;
-import android.widget.TimePicker;
-import android.widget.Toast;
+        import android.content.Context;
+        import android.os.Build;
+        import android.os.Bundle;
+        import android.view.LayoutInflater;
+        import android.view.View;
+        import android.view.ViewGroup;
+        import android.widget.Button;
+        import android.widget.EditText;
+        import android.widget.TimePicker;
+        import android.widget.Toast;
 
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
+        import androidx.annotation.RequiresApi;
+        import androidx.appcompat.app.AlertDialog;
+        import androidx.fragment.app.Fragment;
 
-import java.util.ArrayList;
-
-public class FragmentUn extends Fragment implements View.OnClickListener {
+public class Ajouter extends Fragment implements View.OnClickListener {
 
     private View fragment1;
+    private Ecouteur ecouteur;
     //private View fragment2;
 
 //    ListView listeCuissons;
@@ -35,11 +33,11 @@ public class FragmentUn extends Fragment implements View.OnClickListener {
 
     private TimePicker timePicker;
 
-    public FragmentUn() {
+    public Ajouter() {
     }
 
-    public static FragmentUn newInstance() {
-        FragmentUn fragment = new FragmentUn();
+    public static Ajouter newInstance() {
+        Ajouter fragment = new Ajouter();
         return fragment;
     }
 
@@ -96,6 +94,9 @@ public class FragmentUn extends Fragment implements View.OnClickListener {
                 Toast.makeText(getActivity(),
                         getString(R.string.toast,libellePlat.getText().toString()),
                         Toast.LENGTH_LONG).show();
+                ecouteur.recevoirPlat(OutilCuisson.transformeEnChaine(libellePlat.getText().toString(),
+                        timePicker.getHour(),timePicker.getMinute(),
+                        Integer.parseInt(temperature.getText().toString())));
                 //adaptateur.notifyDataSetChanged();
                 //listeCuissons.requestLayout();
             } else {
@@ -106,6 +107,14 @@ public class FragmentUn extends Fragment implements View.OnClickListener {
                         .show();
             }
         }
+    }
 
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        ecouteur = (Ecouteur) context;
+    }
+
+    public interface Ecouteur {
+        void recevoirPlat(String lePlat);
     }
 }

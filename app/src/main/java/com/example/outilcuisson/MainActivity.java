@@ -2,24 +2,19 @@ package com.example.outilcuisson;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager2.widget.ViewPager2;
 
 import android.os.Build;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.TimePicker;
-import android.widget.Toast;
 
 import com.google.android.material.tabs.TabLayout;
 import com.google.android.material.tabs.TabLayoutMediator;
 
-public class MainActivity extends AppCompatActivity  {
+public class MainActivity extends AppCompatActivity implements Ajouter.Ecouteur  {
 
 
+    private String platAGerer;
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
@@ -34,7 +29,7 @@ public class MainActivity extends AppCompatActivity  {
         pager.setAdapter(new AdapteurPage(this));
 
         String[] titreOnglet = {getString(R.string.ongletAfficher),
-                                getString(R.string.ongletAfficher)};
+                                getString(R.string.ongletAjouter)};
 
         new TabLayoutMediator(gestionnaireOnglet, pager, new TabLayoutMediator.TabConfigurationStrategy() {
             @Override
@@ -43,4 +38,20 @@ public class MainActivity extends AppCompatActivity  {
             }
         }).attach();
     }
+
+    @Override
+    public void recevoirPlat(String lePlat) {
+        platAGerer = lePlat;
+        Ajouter aModifier = (Ajouter) getSupportFragmentManager().findFragmentByTag("f1");
+
+        if (aModifier != null ) {
+            //aModifier.ajoutPlat(lePlat);
+        }
+    }
+
+    public String getPlatAGerer() {
+        return platAGerer;
+    }
+
+
 }
