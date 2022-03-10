@@ -1,32 +1,24 @@
 package com.example.outilcuisson;
 
-        import android.annotation.SuppressLint;
-        import android.content.Context;
-        import android.os.Build;
-        import android.os.Bundle;
-        import android.util.Log;
-        import android.view.LayoutInflater;
-        import android.view.View;
-        import android.view.ViewGroup;
-        import android.widget.ArrayAdapter;
-        import android.widget.Button;
-        import android.widget.EditText;
-        import android.widget.TimePicker;
-        import android.widget.Toast;
-
-        import androidx.annotation.RequiresApi;
-        import androidx.appcompat.app.AlertDialog;
-        import androidx.fragment.app.Fragment;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TimePicker;
+import android.widget.Toast;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.fragment.app.Fragment;
 
 public class Ajouter extends Fragment implements View.OnClickListener {
 
-    private View fragment1;
+    private View vueDuFragmentAjouter;
     private Ecouteur ecouteur;
-    //private View fragment2;
-
-//    ListView listeCuissons;
-//    ArrayList<String> lesCuissons = new ArrayList<>();
-//    ArrayAdapter<String> adaptateur;
 
     private Button effacer;
     private Button valider;
@@ -51,29 +43,25 @@ public class Ajouter extends Fragment implements View.OnClickListener {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        fragment1 = inflater.inflate(R.layout.fragment_un,container,false);
-        //fragment2 = inflater.inflate(R.layout.fragment_deux,container,false);
+        vueDuFragmentAjouter = inflater.inflate(R.layout.fragment_un,container,false);
 
-        effacer = fragment1.findViewById(R.id.btnEffacer);
+        effacer = vueDuFragmentAjouter.findViewById(R.id.btnEffacer);
         effacer.setOnClickListener(this);
 
-        valider = fragment1.findViewById(R.id.btnValider);
+        valider = vueDuFragmentAjouter.findViewById(R.id.btnValider);
         valider.setOnClickListener(this);
 
-        libellePlat = fragment1.findViewById(R.id.txtPlat);
-        temperature = fragment1.findViewById(R.id.txtTempérature);
+        libellePlat = vueDuFragmentAjouter.findViewById(R.id.txtPlat);
+        temperature = vueDuFragmentAjouter.findViewById(R.id.txtTempérature);
 
-        timePicker = (TimePicker) fragment1.findViewById(R.id.timePicker);
+        timePicker = (TimePicker) vueDuFragmentAjouter.findViewById(R.id.timePicker);
         /* on passe au mode français -> 24h */
         timePicker.setIs24HourView(true);
         /* initialise le timePicker à 40min */
         timePicker.setHour(0);
         timePicker.setMinute(40);
 
-        //adaptateur = new ArrayAdapter<String>(getActivity(), R.layout.list_item_layout, lesCuissons);
-        //listeCuissons = fragment2.findViewById(R.id.liste);
-
-        return fragment1;
+        return vueDuFragmentAjouter;
     }
 
 
@@ -89,16 +77,18 @@ public class Ajouter extends Fragment implements View.OnClickListener {
             timePicker.setMinute(40);
         }
         if (view.getId() == R.id.btnValider) {
-            if ( OutilCuisson.heureCuissonValide(timePicker.getHour())
-                    && OutilCuisson.minuteCuissonValide(timePicker.getMinute())
-                    && OutilCuisson.platValide(libellePlat.getText().toString())
-                    && !(temperature.getText().toString().equals(""))
-                    && OutilCuisson.temperatureValide(Integer.parseInt(temperature.getText().toString()))) {
+            if ( !(timePicker.getHour() == 0 && timePicker.getMinute() == 0) // durée est nulle
+                    && (OutilCuisson.heureCuissonValide(timePicker.getHour()) // heure est valide
+                    && OutilCuisson.minuteCuissonValide(timePicker.getMinute()) // minutes sont valides
+                    && OutilCuisson.platValide(libellePlat.getText().toString()) // nom du plat est valide
+                    && !(temperature.getText().toString().equals("")) // temp n'est pas vide
+                    && OutilCuisson.temperatureValide(Integer.parseInt(temperature.getText().toString())))) { // temp valide
 
 
                 Toast.makeText(getActivity(),
                         getString(R.string.toast,libellePlat.getText().toString()),
                         Toast.LENGTH_LONG).show();
+
                 ecouteur.recevoirPlat(OutilCuisson.transformeEnChaine(libellePlat.getText().toString(),
                         timePicker.getHour(),timePicker.getMinute(),
                         Integer.parseInt(temperature.getText().toString())));

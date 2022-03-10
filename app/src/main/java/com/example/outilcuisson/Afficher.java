@@ -22,6 +22,7 @@ public class Afficher extends Fragment {
     private ListView listeCuissons;
     private ArrayList<String> lesCuissons = new ArrayList<>();
     private ArrayAdapter<String> adaptateur;
+    private View vueDuFragmentAfficher;
 
     String text; // Pour le toast
 
@@ -39,8 +40,8 @@ public class Afficher extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View vueDuFragment = inflater.inflate(R.layout.fragment_deux,container,false);
-        listeCuissons = vueDuFragment.findViewById(R.id.liste);
+        vueDuFragmentAfficher = inflater.inflate(R.layout.fragment_deux,container,false);
+        listeCuissons = vueDuFragmentAfficher.findViewById(R.id.liste);
 
         lesCuissons.add(OutilCuisson.transformeEnChaine("Pizza",0, 20, 205));
         lesCuissons.add(OutilCuisson.transformeEnChaine("Gratin dauphinois",0, 50, 180));
@@ -62,7 +63,7 @@ public class Afficher extends Fragment {
             ajouterPlat(nouveauPlat);
         }
 
-        return vueDuFragment;
+        return vueDuFragmentAfficher;
     }
 
     /**

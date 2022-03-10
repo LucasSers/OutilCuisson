@@ -21,7 +21,7 @@
     <!-- Boite Alerte -->
     <string name="titreAlerte">Erreur de saisie</string>
     <string name="messageAlerte">L\'une des informations saisies est incorrecte :\n
-                                 - Nom du plat -> vide, contient | \n
+                                 - Nom du plat -> vide ou contient | \n
                                  - Durée de cuisson -> nulle ou trop grande (max 9h) \n
                                  - Température -> nulle ou supérieure à 300 degrès \n\n
                                  Vérifiez les valeurs saisies !</string>

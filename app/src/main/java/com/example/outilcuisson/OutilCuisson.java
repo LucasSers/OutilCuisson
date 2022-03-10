@@ -183,7 +183,8 @@ public class OutilCuisson {
 
         try {
             chaineTemperature = source.substring(source.length() - 3, source.length());
-            temperature = Integer.parseInt(chaineTemperature);
+            // ajout de .trim() pour éviter les erreurs de conversion lorsque la température est entre 0 et 99
+            temperature = Integer.parseInt(chaineTemperature.trim());
         } catch(NumberFormatException | IndexOutOfBoundsException erreur) {
 
             /*
