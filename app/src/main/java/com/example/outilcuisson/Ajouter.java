@@ -1,11 +1,14 @@
 package com.example.outilcuisson;
 
+        import android.annotation.SuppressLint;
         import android.content.Context;
         import android.os.Build;
         import android.os.Bundle;
+        import android.util.Log;
         import android.view.LayoutInflater;
         import android.view.View;
         import android.view.ViewGroup;
+        import android.widget.ArrayAdapter;
         import android.widget.Button;
         import android.widget.EditText;
         import android.widget.TimePicker;
@@ -75,6 +78,7 @@ public class Ajouter extends Fragment implements View.OnClickListener {
 
 
 
+    @SuppressLint("LongLogTag")
     @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public void onClick(View view) {
@@ -88,6 +92,7 @@ public class Ajouter extends Fragment implements View.OnClickListener {
             if ( OutilCuisson.heureCuissonValide(timePicker.getHour())
                     && OutilCuisson.minuteCuissonValide(timePicker.getMinute())
                     && OutilCuisson.platValide(libellePlat.getText().toString())
+                    && !(temperature.getText().toString().equals(""))
                     && OutilCuisson.temperatureValide(Integer.parseInt(temperature.getText().toString()))) {
 
 
@@ -97,8 +102,6 @@ public class Ajouter extends Fragment implements View.OnClickListener {
                 ecouteur.recevoirPlat(OutilCuisson.transformeEnChaine(libellePlat.getText().toString(),
                         timePicker.getHour(),timePicker.getMinute(),
                         Integer.parseInt(temperature.getText().toString())));
-                //adaptateur.notifyDataSetChanged();
-                //listeCuissons.requestLayout();
             } else {
                 new AlertDialog.Builder(getActivity())
                         .setTitle(R.string.titreAlerte)
@@ -117,4 +120,5 @@ public class Ajouter extends Fragment implements View.OnClickListener {
     public interface Ecouteur {
         void recevoirPlat(String lePlat);
     }
+
 }

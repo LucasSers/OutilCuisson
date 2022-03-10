@@ -9,6 +9,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AlertDialog;
@@ -46,13 +47,21 @@ public class Afficher extends Fragment {
         lesCuissons.add(OutilCuisson.transformeEnChaine("Tarte aux pommes",0, 40, 205));
         lesCuissons.add(OutilCuisson.transformeEnChaine("Poulet",1, 10, 200));
 
-        /* on affecte la layout défini par les items de la liste */
+
+        /* on affecte le layout défini par les items de la liste */
         adaptateur = new ArrayAdapter<String>(getActivity(), R.layout.list_item_layout, lesCuissons);
 
         listeCuissons.setAdapter(adaptateur);
 
         // on précise qu'un menu est associé à la liste qui correspond à l'activité
         registerForContextMenu(listeCuissons);
+
+        String nouveauPlat;
+        nouveauPlat = ((MainActivity) getActivity()).getPlatAGerer();
+        if ( nouveauPlat != null ) {
+            ajouterPlat(nouveauPlat);
+        }
+
         return vueDuFragment;
     }
 
@@ -89,6 +98,8 @@ public class Afficher extends Fragment {
 
             case R.id.supprimer: // on supprime de l'adaptateur l'article courant
                 adaptateur.remove(lesCuissons.get(information.position));
+                // met à jour le layout de la liste
+                setListViewHeightBasedOnChildren(listeCuissons);
                 break;
 
             case R.id.thermostat: // affiche le thermostat dans une AlertDialog
@@ -109,7 +120,38 @@ public class Afficher extends Fragment {
         return (super.onContextItemSelected(item));
     }
 
-    public void ajoutPlat(String lePlat) {
+    public void ajouterPlat(String lePlat) {
         adaptateur.add(lePlat);
+        // met à jour le layout de la liste
+        setListViewHeightBasedOnChildren(listeCuissons);
+    }
+
+
+    /* met à jour la taille du layout en fonction de son contenu
+     * évite de n'avoir rien d'affiché à l'écran même si la liste contient des cuissons
+     * évite d'avoir une liste vide à l'écran s'il n'y pas de cuissons
+     * Source : internet
+     */
+    private void setListViewHeightBasedOnChildren(ListView listView) {
+        ListAdapter listAdapter = listView.getAdapter();
+        // si on arrive au bout de la fenêtre Android, cad 7 items, alors
+        // l'affichage ne se met plus à jour et un scroll apparaît automatiquement
+        if (listAdapter == null || listAdapter.getCount() > 7) {
+            // pre-condition
+            return;
+        }
+
+        int totalHeight = 0;
+        for (int i = 0; i < listAdapter.getCount(); i++) {
+            View listItem = listAdapter.getView(i, null, listView);
+            listItem.measure(0, 0);
+            totalHeight += listItem.getMeasuredHeight();
+        }
+
+        ViewGroup.LayoutParams params = listView.getLayoutParams();
+        params.height = totalHeight
+                + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
+        listView.setLayoutParams(params);
+        listView.requestLayout();
     }
 }

@@ -42,10 +42,10 @@ public class MainActivity extends AppCompatActivity implements Ajouter.Ecouteur 
     @Override
     public void recevoirPlat(String lePlat) {
         platAGerer = lePlat;
-        Ajouter aModifier = (Ajouter) getSupportFragmentManager().findFragmentByTag("f1");
+        Afficher aModifier = (Afficher) getSupportFragmentManager().findFragmentByTag("f0");
 
         if (aModifier != null ) {
-            //aModifier.ajoutPlat(lePlat);
+            aModifier.ajouterPlat(lePlat);
         }
     }
 
