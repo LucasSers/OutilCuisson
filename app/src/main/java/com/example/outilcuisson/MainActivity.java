@@ -58,5 +58,19 @@ public class MainActivity extends AppCompatActivity implements Ajouter.Ecouteur 
         return platAGerer;
     }
 
+    /**
+     * Appelée au démarrage de l'Activitée
+     */
+    public void onStart() {
+        super.onStart();
+    }
+
+    /**
+     * Appelé à la fermeture de l'application
+     */
+    public void onDestroy() {
+        super.onDestroy();
+    }
+
 
 }
