@@ -38,4 +38,8 @@
         votre four sur le thermostat %d
     </string>
 
+    <!--Toast lecture/ecriture fichier -->
+    <string name="fichierNonTrouve">Le fichier %s n\'existe pas</string>
+    <string name="pbLectureFichier">Problème de lecture dans le fichier %s</string>
+
 </resources>

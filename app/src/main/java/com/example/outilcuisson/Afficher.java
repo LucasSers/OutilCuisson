@@ -24,8 +24,6 @@ public class Afficher extends Fragment {
     private ArrayAdapter<String> adaptateur;
     private View vueDuFragmentAfficher;
 
-    String text; // Pour le toast
-
     public Afficher() {
         // empty body
     }
@@ -43,12 +41,6 @@ public class Afficher extends Fragment {
         vueDuFragmentAfficher = inflater.inflate(R.layout.fragment_deux,container,false);
         listeCuissons = vueDuFragmentAfficher.findViewById(R.id.liste);
 
-        lesCuissons.add(OutilCuisson.transformeEnChaine("Pizza",0, 20, 205));
-        lesCuissons.add(OutilCuisson.transformeEnChaine("Gratin dauphinois",0, 50, 180));
-        lesCuissons.add(OutilCuisson.transformeEnChaine("Tarte aux pommes",0, 40, 205));
-        lesCuissons.add(OutilCuisson.transformeEnChaine("Poulet",1, 10, 200));
-
-
         /* on affecte le layout défini par les items de la liste */
         adaptateur = new ArrayAdapter<String>(getActivity(), R.layout.list_item_layout, lesCuissons);
 
@@ -57,10 +49,18 @@ public class Afficher extends Fragment {
         // on précise qu'un menu est associé à la liste qui correspond à l'activité
         registerForContextMenu(listeCuissons);
 
+        // plat ajouté depuis le menu Ajouter
         String nouveauPlat;
         nouveauPlat = ((MainActivity) getActivity()).getPlatAGerer();
         if ( nouveauPlat != null ) {
             ajouterPlat(nouveauPlat);
+        }
+
+        // plat(s) ajouté(s) au démarrage de l'app depuis le fichier
+        for (String plat : ((MainActivity) getActivity()).getPlatsAGerer()) {
+            if ( plat != null ) {
+                ajouterPlat(plat);
+            }
         }
 
         return vueDuFragmentAfficher;
@@ -98,7 +98,7 @@ public class Afficher extends Fragment {
         switch(item.getItemId()) {
 
             case R.id.supprimer: // on supprime de l'adaptateur l'article courant
-                adaptateur.remove(lesCuissons.get(information.position));
+                lesCuissons.remove(lesCuissons.get(information.position));
                 // met à jour le layout de la liste
                 setListViewHeightBasedOnChildren(listeCuissons);
                 break;
@@ -122,9 +122,13 @@ public class Afficher extends Fragment {
     }
 
     public void ajouterPlat(String lePlat) {
-        adaptateur.add(lePlat);
+        lesCuissons.add(lePlat);
         // met à jour le layout de la liste
         setListViewHeightBasedOnChildren(listeCuissons);
+    }
+
+    public ArrayList<String> getCuissons() {
+        return lesCuissons;
     }
 
 

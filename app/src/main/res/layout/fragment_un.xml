@@ -33,7 +33,7 @@
             style="@style/editText"
             android:id="@+id/txtPlat"
             android:inputType="text"
-            android:maxLength="20"
+            android:maxLength="18"
             android:layout_span="2"/>
 
     </TableRow>
