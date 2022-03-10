@@ -1,5 +1,7 @@
 package com.example.outilcuisson;
 
+import android.view.Window;
+import android.view.WindowManager;
 import androidx.annotation.NonNull;
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -37,6 +39,9 @@ public class MainActivity extends AppCompatActivity implements Ajouter.Ecouteur 
                 tab.setText(titreOnglet[position]);
             }
         }).attach();
+
+        // permet de cacher la status bar d'Android par défaut en haut de l'écran
+        getWindow().addFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN);
     }
 
     @Override
