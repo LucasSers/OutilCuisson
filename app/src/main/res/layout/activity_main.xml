@@ -18,6 +18,6 @@
         android:id="@+id/activity_main_viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"/>
-
+        android:layout_weight="1"
+        style="@style/marginActivity"/> <!-- applique le style qui était avant dans les 2 activités -->
 </LinearLayout>
