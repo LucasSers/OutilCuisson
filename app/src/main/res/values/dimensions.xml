@@ -15,14 +15,14 @@
     <dimen name="espaceTitre">15dp</dimen>
     <dimen name="espaceListe">10dp</dimen>
     <dimen name="largeurPlat">155dp</dimen>
-    <dimen name="espacePlat">15dp</dimen>
-    <dimen name="espaceDurée">39dp</dimen>
+    <dimen name="espacePlat">34dp</dimen>
+    <dimen name="espaceDurée">50dp</dimen>
 
     <!-- Fragment Ajouter -->
-    <dimen name="fontTextView">14sp</dimen>
+    <dimen name="fontTextView">16sp</dimen>
     <dimen name="espaceBoutons">10dp</dimen>
     <dimen name="marginBarre">15dp</dimen>
-    <dimen name="espaceTimePickerDroite">0dp</dimen>
+    <dimen name="espaceTimePickerDroite">20dp</dimen>
     <dimen name="espaceTimePickerHaut">10dp</dimen>
     <dimen name="hauteurTimePicker">158dp</dimen>
 
