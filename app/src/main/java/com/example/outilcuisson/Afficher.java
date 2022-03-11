@@ -138,10 +138,14 @@ public class Afficher extends Fragment {
      * Source : internet
      */
     private void setListViewHeightBasedOnChildren(ListView listView) {
+        // notifier l'adaptateur lorsque la liste de base change
+        // soit +1 soit -1 item
+        adaptateur.notifyDataSetChanged();
+
         ListAdapter listAdapter = listView.getAdapter();
-        // si on arrive au bout de la fenêtre Android, cad 8 items, alors
+        // si on arrive au bout de la fenêtre Android, cad 7 items, alors
         // l'affichage ne se met plus à jour et un scroll apparaît automatiquement
-        if (listAdapter == null || listAdapter.getCount() > 8) {
+        if (listAdapter == null || listAdapter.getCount() > 7) {
             // pre-condition
             return;
         }
@@ -167,8 +171,5 @@ public class Afficher extends Fragment {
             listView.setLayoutParams(params);
             listView.requestLayout();
         }
-        // notifier l'adaptateur lorsque la liste de base change
-        // soit +1 soit -1 item
-        adaptateur.notifyDataSetChanged();
     }
 }
