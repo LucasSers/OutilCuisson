@@ -97,7 +97,7 @@ public class Afficher extends Fragment {
         // selon l'option sélectionnée dans le menu, on réalise le traitement adéquat
         switch(item.getItemId()) {
 
-            case R.id.supprimer: // on supprime de l'adaptateur l'article courant
+            case R.id.supprimer: // on supprime de l'ArrayList l'article courant
                 lesCuissons.remove(lesCuissons.get(information.position));
                 // met à jour le layout de la liste
                 setListViewHeightBasedOnChildren(listeCuissons);
@@ -167,5 +167,8 @@ public class Afficher extends Fragment {
             listView.setLayoutParams(params);
             listView.requestLayout();
         }
+        // notifier l'adaptateur lorsque la liste de base change
+        // soit +1 soit -1 item
+        adaptateur.notifyDataSetChanged();
     }
 }
