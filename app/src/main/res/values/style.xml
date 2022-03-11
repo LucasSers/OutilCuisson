@@ -39,6 +39,8 @@
         <item name="android:textSize">@dimen/fontTitre</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/titre</item>
+        <item name="android:layout_marginBottom">@dimen/espaceListe</item>
     </style>
+
 
 </resources>

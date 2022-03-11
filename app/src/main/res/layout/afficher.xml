@@ -20,7 +20,7 @@
 
     <!-- Espace pour plus de clarté entre les TextView -->
     <Space
-        android:layout_marginBottom="@dimen/espaceLigne"
+        android:layout_marginBottom="@dimen/espaceTitre"
         android:layout_height="wrap_content"/>
 
     <TableRow>
@@ -29,8 +29,8 @@
             style="@style/titreListe"
             android:text="@string/labelPlat"
             android:gravity="center"
-            android:width="155dp"
-            android:layout_marginRight="15dp"
+            android:width="@dimen/largeurPlat"
+            android:layout_marginRight="@dimen/espacePlat"
             android:layout_column="0"/>
 
 
@@ -38,7 +38,7 @@
         <TextView
             style="@style/titreListe"
             android:text="@string/labelDurée"
-            android:layout_marginRight="39dp"
+            android:layout_marginRight="@dimen/espaceDurée"
             android:layout_column="1"/>
 
 

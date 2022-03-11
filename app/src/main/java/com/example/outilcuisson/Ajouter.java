@@ -44,7 +44,7 @@ public class Ajouter extends Fragment implements View.OnClickListener {
 
     @RequiresApi(api = Build.VERSION_CODES.M)
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        vueDuFragmentAjouter = inflater.inflate(R.layout.fragment_un,container,false);
+        vueDuFragmentAjouter = inflater.inflate(R.layout.ajouter,container,false);
 
         effacer = vueDuFragmentAjouter.findViewById(R.id.btnEffacer);
         effacer.setOnClickListener(this);
@@ -59,8 +59,8 @@ public class Ajouter extends Fragment implements View.OnClickListener {
         /* on passe au mode français -> 24h */
         timePicker.setIs24HourView(true);
         /* initialise le timePicker à 40min */
-        timePicker.setHour(0);
-        timePicker.setMinute(40);
+        timePicker.setCurrentHour(0);
+        timePicker.setCurrentMinute(40);
 
         return vueDuFragmentAjouter;
     }
@@ -74,13 +74,13 @@ public class Ajouter extends Fragment implements View.OnClickListener {
         if (view.getId() == R.id.btnEffacer) {
             temperature.setText("");
             libellePlat.setText("");
-            timePicker.setHour(0);
-            timePicker.setMinute(40);
+            timePicker.setCurrentHour(0);
+            timePicker.setCurrentMinute(40);
         }
         if (view.getId() == R.id.btnValider) {
-            if ( !(timePicker.getHour() == 0 && timePicker.getMinute() == 0) // durée est nulle
-                    && (OutilCuisson.heureCuissonValide(timePicker.getHour()) // heure est valide
-                    && OutilCuisson.minuteCuissonValide(timePicker.getMinute()) // minutes sont valides
+            if ( !(timePicker.getCurrentHour() == 0 && timePicker.getCurrentMinute() == 0) // durée est nulle
+                    && (OutilCuisson.heureCuissonValide(timePicker.getCurrentHour()) // heure est valide
+                    && OutilCuisson.minuteCuissonValide(timePicker.getCurrentMinute()) // minutes sont valides
                     && OutilCuisson.platValide(libellePlat.getText().toString()) // nom du plat est valide
                     && !(temperature.getText().toString().equals("")) // temp n'est pas vide
                     && OutilCuisson.temperatureValide(Integer.parseInt(temperature.getText().toString())))) { // temp valide
@@ -91,7 +91,7 @@ public class Ajouter extends Fragment implements View.OnClickListener {
                         Toast.LENGTH_LONG).show();
 
                 ecouteur.recevoirPlat(OutilCuisson.transformeEnChaine(libellePlat.getText().toString(),
-                        timePicker.getHour(),timePicker.getMinute(),
+                        timePicker.getCurrentHour(),timePicker.getCurrentMinute(),
                         Integer.parseInt(temperature.getText().toString())));
             } else {
                 new AlertDialog.Builder(getActivity())

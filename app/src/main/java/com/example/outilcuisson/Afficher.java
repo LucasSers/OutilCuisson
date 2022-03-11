@@ -38,7 +38,7 @@ public class Afficher extends Fragment {
     }
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        vueDuFragmentAfficher = inflater.inflate(R.layout.fragment_deux,container,false);
+        vueDuFragmentAfficher = inflater.inflate(R.layout.afficher,container,false);
         listeCuissons = vueDuFragmentAfficher.findViewById(R.id.liste);
 
         /* on affecte le layout défini par les items de la liste */
@@ -139,9 +139,9 @@ public class Afficher extends Fragment {
      */
     private void setListViewHeightBasedOnChildren(ListView listView) {
         ListAdapter listAdapter = listView.getAdapter();
-        // si on arrive au bout de la fenêtre Android, cad 7 items, alors
+        // si on arrive au bout de la fenêtre Android, cad 8 items, alors
         // l'affichage ne se met plus à jour et un scroll apparaît automatiquement
-        if (listAdapter == null || listAdapter.getCount() > 7) {
+        if (listAdapter == null || listAdapter.getCount() > 8) {
             // pre-condition
             return;
         }
