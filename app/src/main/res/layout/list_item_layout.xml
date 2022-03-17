@@ -8,12 +8,12 @@
      fichier ligne_liste.xml                               12/21-->
 
 <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-          android:id="@+id/text1"
-          android:typeface="monospace"
-          android:textStyle="bold"
-          android:textSize="@dimen/fontTextView"
-          android:paddingTop="@dimen/marginBarre"
-          android:paddingBottom="@dimen/marginBarre"
-          android:layout_width="match_parent"
-          android:layout_height="wrap_content"
-          android:textColor="@color/textView"/>
+    android:id="@+id/text1"
+    android:typeface="monospace"
+    android:textStyle="bold"
+    android:textSize="@dimen/fontTextView"
+    android:paddingTop="@dimen/marginBarre"
+    android:paddingBottom="@dimen/marginBarre"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:textColor="@color/textView"/>

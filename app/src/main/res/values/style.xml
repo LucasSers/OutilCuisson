@@ -17,6 +17,7 @@
         <item name="android:fontFamily">sans-serif-medium</item>
         <item name="android:textSize">@dimen/fontTextView</item>
         <item name="android:textColor">@color/textView</item>
+        <item name="android:textStyle">bold</item>
     </style>
 
     <style name="editText">
@@ -25,6 +26,7 @@
         <item name="android:backgroundTint">@color/editText</item>
         <item name="android:cursorVisible">true</item>
         <item name="android:textCursorDrawable">@drawable/color_cursor</item>
+        <item name="android:textSize">@dimen/fontTextView</item>
     </style>
 
     <style name="background">
@@ -36,11 +38,10 @@
     </style>
 
     <style name="titreListe">
-        <item name="android:textSize">@dimen/fontTitre</item>
+        <item name="android:textSize">@dimen/fontTitreListe</item>
         <item name="android:textStyle">bold</item>
         <item name="android:textColor">@color/titre</item>
         <item name="android:layout_marginBottom">@dimen/espaceListe</item>
     </style>
-
 
 </resources>

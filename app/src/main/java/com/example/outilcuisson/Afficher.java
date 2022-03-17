@@ -143,9 +143,9 @@ public class Afficher extends Fragment {
         adaptateur.notifyDataSetChanged();
 
         ListAdapter listAdapter = listView.getAdapter();
-        // si on arrive au bout de la fenêtre Android, cad 7 items, alors
+        // si on arrive au bout de la fenêtre Android, cad 11 items, alors
         // l'affichage ne se met plus à jour et un scroll apparaît automatiquement
-        if (listAdapter == null || listAdapter.getCount() > 7) {
+        if (listAdapter == null || listAdapter.getCount() > 11) {
             // pre-condition
             return;
         }

@@ -12,6 +12,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:tabBackground="@color/editText"
+        app:tabGravity="fill"
+        app:tabMode="fixed"
+        app:tabMaxWidth="0dp"
         />
 
     <androidx.viewpager2.widget.ViewPager2
@@ -20,4 +23,5 @@
         android:layout_height="@dimen/hauteurViewPager"
         android:layout_weight="@dimen/largeurViewPager"
         style="@style/marginActivity"/> <!-- applique le style qui était avant dans les 2 activités -->
+
 </LinearLayout>
